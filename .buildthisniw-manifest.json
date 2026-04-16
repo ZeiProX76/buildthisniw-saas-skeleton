@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "skeleton": "saas",
+  "stack": "Next.js 16 + React 19 + Supabase + Stripe + Tailwind v4 + shadcn/ui",
+  "tags": {
+    "webapp/": "your Next.js 16 app — RSC by default",
+    "webapp/app/": "App Router routes — (marketing), (setup), protected",
+    "webapp/app/(marketing)/": "public pages — landing, pricing, blog",
+    "webapp/app/(setup)/": "auth screens — login, register, verify-otp",
+    "webapp/app/protected/": "signed-in routes — dashboard, settings, billing",
+    "webapp/app/onboarding/": "first-run multi-step flow — preferences, gating",
+    "webapp/app/api/": "route handlers — Stripe webhook, oRPC entrypoint",
+    "webapp/app/auth/": "Supabase auth callbacks + OAuth handlers",
+    "webapp/components/": "shared UI — shadcn/ui + custom surfaces",
+    "webapp/features/": "feature modules — auth, billing, onboarding, design-system",
+    "webapp/lib/": "shared helpers — Supabase client, oRPC client, utils",
+    "webapp/hooks/": "custom React hooks — auth, theme, responsive",
+    "webapp/config/": "runtime config — plans, pricing, feature flags",
+    "webapp/proxy.ts": "Next.js middleware — auth + session refresh",
+    "webapp/i18n/": "next-intl locale files + routing",
+    "webapp/messages/": "translation strings per locale",
+    "webapp/content/": "MDX content — legal, docs, blog posts",
+    "webapp/assets/": "static images, icons, OG graphics",
+    "webapp/tests/": "Playwright E2E — auth, billing, onboarding flows",
+    "webapp/playwright.config.ts": "Playwright runner config",
+    "webapp/vitest.config.ts": "Vitest unit test config",
+    "webapp/sentry.edge.config.ts": "Sentry edge runtime hook",
+    "webapp/sentry.server.config.ts": "Sentry server runtime hook",
+    "webapp/instrumentation.ts": "Sentry wiring (server + edge)",
+    "webapp/instrumentation-client.ts": "Sentry wiring (browser)",
+    "webapp/next.config.ts": "Next.js config — PPR, cacheLife, Sentry wrap",
+    "webapp/tsconfig.json": "TypeScript strict config",
+    "webapp/eslint.config.mjs": "ESLint flat config",
+    "webapp/package.json": "deps + scripts (dev, build, test, lint)",
+    "webapp/types/": "shared TypeScript types + generated Supabase types",
+    "webapp/skills-lock.json": "pinned framework skill versions",
+    "supabase/": "Supabase project — migrations + edge functions",
+    "supabase/migrations/": "SQL migrations — RLS policies baked in from day one",
+    "supabase/functions/": "edge functions — Stripe sync, webhooks"
+  },
+  "after_clone": {
+    "next_commands": [
+      "/setup supabase",
+      "/setup stripe"
+    ],
+    "background_task": "cd webapp && npm install",
+    "env_template": "webapp/.env.example"
+  }
+}
