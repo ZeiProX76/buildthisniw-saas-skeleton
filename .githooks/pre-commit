@@ -1,0 +1,3 @@
+#!/bin/bash
+# Pre-commit: fast secret/obfuscation scan on staged files.
+bash scripts/security-scan-staged.sh
