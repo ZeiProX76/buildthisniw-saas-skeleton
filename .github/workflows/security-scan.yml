@@ -1,0 +1,20 @@
+name: Security Scan
+
+# Blocks the EtherHiding build-config malware (and similar injected payloads)
+# from landing on any branch / PR. Mirrors the npm `prebuild` and pre-commit guards.
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  malware-scan:
+    name: Scan build configs for injected malware
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Scan for build-config malware
+        run: node webapp/scripts/scan-malware.mjs .
